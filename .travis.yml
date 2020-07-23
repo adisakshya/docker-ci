@@ -20,12 +20,18 @@ install:
   - echo "install nothing!"
 
 script:
+  # Build
   - docker build -t $IMAGE_NAME .
+  # Test installations
+  - docker run --rm $IMAGE_NAME aws --version
+  - docker run --rm $IMAGE_NAME copilot --version
 
 after_script:
+  # List all docker images
   - docker images
 
 after_success:
+  # Push to dockerhub
   - docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"
   - docker tag $IMAGE_NAME $IMAGE_NAME:latest
   - docker tag $IMAGE_NAME $IMAGE_NAME:$VERSION
