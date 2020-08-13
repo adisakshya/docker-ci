@@ -23,5 +23,5 @@ RUN rm -rf awscliv2.zip aws /usr/local/aws-cli/v2/*/dist/aws_completer /usr/loca
     rm -rf /var/cache/apk/*
 
 # Install Copilot CLI
-RUN curl -Lo /usr/local/bin/copilot https://github.com/aws/copilot-cli/releases/download/v0.1.0/copilot-linux-v0.1.0 && \
+RUN curl -Lo /usr/local/bin/copilot https://github.com/aws/copilot-cli/releases/download/v0.2.0/copilot-linux-v0.2.0 && \
     chmod +x /usr/local/bin/copilot
